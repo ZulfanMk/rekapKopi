@@ -8,12 +8,22 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\DataKeuanganController;
+
 
 
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal');
 Route::post('/jadwal', [JadwalController::class, 'store'])->name('jadwal.store');
+Route::delete('/jadwal/{id}', [JadwalController::class, 'destroy'])->name('jadwal.destroy');
+Route::get('jadwal/{id}/edit', [JadwalController::class, 'edit'])->name('jadwal.edit');
+Route::put('/jadwal/{id}', [JadwalController::class, 'update'])->name('jadwal.update');
 
-
+// Route::resource('data_keuangans', DataKeuanganController::class);
+Route::get('/keuangan', [DataKeuanganController::class, 'index'])->name('keuangan');
+Route::post('/keuangan', [DataKeuanganController::class, 'store'])->name('keuangan.store');
+Route::delete('/keuangan/{id}', [DataKeuanganController::class, 'destroy'])->name('keuangan.destroy');
+Route::get('keuangan/{id}/edit', [DataKeuanganController::class, 'edit'])->name('keuangan.edit');
+Route::put('/keuangan/{id}', [DataKeuanganController::class, 'update'])->name('keuangan.update');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
